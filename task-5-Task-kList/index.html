@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач пользователя</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Список задач пользователя📝</h1>
+        
+        <div class="input-group">
+            <input 
+                type="number" 
+                id="userIdInput" 
+                placeholder="Введите ID пользователя (от 1 до 10)" 
+                min="1" 
+                max="10"
+            >
+            <button id="getTasksBtn">Получить список задач</button>
+        </div>
+        
+        <div id="result"></div>
+    </div>
+
+<script src="functions.js"></script>
+
+
+</body>
+</html>
+

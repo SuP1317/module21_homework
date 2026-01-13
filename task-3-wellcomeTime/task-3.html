@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приветствие</title>
+    </head>
+<body>
+    
+    <script>
+        
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            
+            return `${day}.${month}.${year} ${hours}:${minutes}`;
+        }
+
+       
+        const savedName = localStorage.getItem('userName');
+        const savedVisitDate = localStorage.getItem('lastVisitDate');
+
+        if (!savedName) {
+            
+            const userName = prompt('Добро пожаловать! Назовите, пожалуйста, ваше имя');
+            
+            if (userName) {
+                const currentDate = new Date();
+                const formattedDate = formatDate(currentDate);
+                
+                
+                localStorage.setItem('userName', userName);
+                localStorage.setItem('lastVisitDate', formattedDate);
+               
+            }
+           
+        } else {
+           
+            const currentDate = new Date();
+            const formattedCurrentDate = formatDate(currentDate);
+            
+           
+            alert(`Добрый день, ${savedName}! Давно не виделись. В последний раз вы были у нас ${savedVisitDate}`);
+            
+            
+            localStorage.setItem('lastVisitDate', formattedCurrentDate);
+        }
+    </script>
+</body>
+</html>
